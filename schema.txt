@@ -1,0 +1,7 @@
+create KEYSPACE test WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+create TABLE test.thecf (id int PRIMARY KEY, col1 varchar, col2 varchar, col3 int);
+
+create TRIGGER ehcacheUpdate ON cache.data USING 'com.btoddb.cache.EHCacheUpdateTrigger';
+
+drop TRIGGER ehcacheUpdate on test.thecf;
